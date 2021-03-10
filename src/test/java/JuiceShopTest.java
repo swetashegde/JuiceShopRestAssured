@@ -2,7 +2,7 @@ import net.minidev.json.JSONObject;
 import org.junit.Test;
 import static io.restassured.RestAssured.*;
 
-public class JuiceShopTests extends BaseConfig {
+public class JuiceShopTest extends BaseConfig {
     @Test
     public void loginToJuiceApp() {
         JSONObject loginRequestBody = new JSONObject();
