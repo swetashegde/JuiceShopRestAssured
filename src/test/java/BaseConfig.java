@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 
 public class BaseConfig {
     public static RequestSpecification requestSpecification;
-    public static ResponseSpecification responseSpecification;
+//    public static ResponseSpecification responseSpecification;
 
     @BeforeClass
     public static void setup() {
@@ -17,11 +17,11 @@ public class BaseConfig {
                 .addHeader("Accept","application/json")
                 .build();
 
-        responseSpecification = new ResponseSpecBuilder()
-                .expectStatusCode(200)
-                .build();
+//        responseSpecification = new ResponseSpecBuilder()
+//                .expectStatusCode(200)
+//                .build();
 
         RestAssured.requestSpecification = requestSpecification;
-        RestAssured.responseSpecification = responseSpecification;
+//        RestAssured.responseSpecification = responseSpecification;
     }
 }
