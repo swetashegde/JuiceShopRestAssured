@@ -1,6 +1,4 @@
-import datamodels.LoginData;
-import datamodels.RegisterCustomerData;
-import datamodels.SecurityQuestion;
+import datamodels.*;
 import net.minidev.json.JSONObject;
 import org.junit.Test;
 import static io.restassured.RestAssured.*;
@@ -8,13 +6,16 @@ import static io.restassured.RestAssured.*;
 public class JuiceShopTest extends BaseConfig {
     @Test
     public void loginToJuiceApp() {
-        given()
+        Authentication authentication = given()
                 .body(loginDataBuilder()).
         when()
                 .post("rest/user/login").
         then()
                 .log().all()
-        .statusCode(200);
+        .statusCode(200)
+                .extract().as(LoginResponse.class).getAuthentication();
+
+        System.out.println("\ntoken = "+authentication.getToken());
     }
 
     @Test
