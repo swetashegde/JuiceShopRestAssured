@@ -14,7 +14,6 @@ public class JuiceShopTests extends BaseConfig {
         when()
                 .post("rest/user/login").
         then()
-                .log().all()
-                .assertThat().statusCode(200);
+                .log().all();
     }
 }
